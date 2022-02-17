@@ -1,0 +1,51 @@
+<div class="div_text_centered">
+<h2 class="h1-responsive font-weight-bold my-5">Bienvenue sur la page d'inscription</h2>
+<div class=" border border-light p-5">
+    <p> Tu trouveras ci-dessous le formulaire à compléter : (Champs obligatoires*)</p>
+    
+    <%= form_tag url_for(action: 'create'), method: "post" do %>
+      <div class="card text-center w-50">
+        <%= label_tag 'Prénom*' %>
+        <%= text_field_tag 'first_name' %>
+        <br />
+  
+        <%= label_tag 'Nom' %>
+        <%= text_field_tag 'last_name' %>
+        <br />
+
+        <%= label_tag 'Description' %>
+        <%= text_area_tag 'description' %>
+        <br />
+
+        <%= label_tag 'Age*' %>
+        <%= text_field_tag 'age' %>
+        <br />
+
+        <%= label_tag 'ID de la Ville' %>
+        <%= text_field_tag 'city_id' %>
+        <br />
+  
+        <%= label_tag 'Email*' %>
+        <%= text_field_tag 'email' %>
+        <br />
+  
+        <%= label_tag 'Mot de passe*' %>
+        <%= text_field_tag 'password_digest' %>
+        <br />
+
+        <%= submit_tag "Valider l'inscription" %>
+  
+      <% end %>
+      </br>
+      <% if @users.errors.any? %>
+  <p>Nous n'avons pas réussi à créer le profil pour la (ou les) raison(s) suivante(s) :</p>
+  <ul>
+    <% @users.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+</div>
+</div>
+</div>
+<a href="<%= gossips_path %>" class="btn btn-secondary m-3 rounded-pill">Revenir au menu</a>

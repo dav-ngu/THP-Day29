@@ -1,0 +1,16 @@
+<h1>Voici la page de l'auteur : <%= @title%></h1>
+<div class="container row justify-content-center">
+<% @gossips.each do |gossip| %>
+  <% if gossip.title == @title%>
+    <div class="card mb-3 mx-4 card-home" style="width: 18rem;">
+      <div class="card-body">
+        <p class="card-text"><em><%= gossip.content %></em></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+</div>
+</div>
+<div class="container row justify-content-center">
+<a href="<%= gossips_path %>" class="btn btn-primary mt-3 rounded-pill">Revenir au menu</a>
+</div>

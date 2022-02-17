@@ -1,0 +1,17 @@
+</br>
+<div class="container" style="height:80vh">
+        <h2>Page d'information de la ville : <%= @city.name %></h2>
+        </br>
+        <p>Voici la liste des potins écrits par les utilisateurs de cette ville : 
+        <hr>
+    <%Gossip.all.each do |gossip|%>
+    <%if @user_id_array.include?(gossip.user_id)%>
+                 <h5 class="card-title"> <%= gossip.title %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Auteur : <%=User.find(gossip.user_id).first_name%> <%=User.find(gossip.user_id).last_name%></h6>
+                  <a href="/gossips/<%=gossip.id%>" class="btn btn-primary m-3 rounded-pill">Afficher le detail du gossip</a>
+        <%end%>
+        <%end%>
+                            </br>
+                            </br>
+                              <a href="<%= gossips_path %>" class="btn btn-secondary m-3 rounded-pill">Revenir au menu</a>
+</div>

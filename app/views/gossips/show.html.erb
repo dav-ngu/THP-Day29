@@ -1,0 +1,19 @@
+</br>
+<div class="container" style="height:80vh">
+    <% @gossips.each do |gossip| %>
+      <% if gossip.id == @id.to_i%>
+        <h2> <%= gossip.title %></h2>
+        </br>
+        <p> <em><%= gossip.content %></em></p>
+        </br>
+        <p> Auteur : <em><%= @x.user.first_name%> <%= @x.user.last_name%></em></p>
+        <p> Ville de l'auteur : <em><%=@x.user.city.name%></em></p>
+        <a href="/users/<%=gossip.user.id %>" class=" btn-auteur btn btn-primary m-3 rounded-pill">Profil de l'auteur</a>
+        <a href="/cities/<%=@x.user.city.id %>" class=" btn-auteur btn btn-primary m-3 rounded-pill">Voir les potins de la ville</a>
+        <a href="/gossips/<%=gossip.id%>/edit" class=" btn-auteur btn btn-warning m-3 rounded-pill">Editer le potin</a>
+        <a class=" btn-auteur btn btn-danger m-3 rounded-pill" href="<%= gossip_path(gossip.id) %>" role="button" data-confirm="Attention la suppression est irreversible" data-method="DELETE">Supprimer le gossip</a>
+        <a href="<%= gossips_path %>" class="btn btn-secondary m-3 rounded-pill">Revenir au menu</a>
+        <hr>
+        <% end %>
+    <% end %>
+</div>

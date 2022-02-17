@@ -1,0 +1,16 @@
+</br>
+<div class="container" style="height:80vh">
+    <% @users.each do |user| %>
+      <% if user.id == @id.to_i%>
+        <h2>Page d'information de l'auteur : <%= user.first_name %> <%= user.last_name %></h2>
+        </br>
+        <p><strong>Description</strong> : "<em><%= user.description %>"</em></p>
+        <p><strong>Email</strong> : <%= user.email %></p>
+        <p><strong>Age</strong> : <%= user.age %></p>
+        <p><strong>Ville de l'auteur</strong> : <%=user.city.name%></p>
+        <a href="<%= gossips_path %>" class="btn btn-secondary m-3 rounded-pill">Revenir au menu</a>
+        <a href="/cities/<%=user.city.id %>" class=" btn-auteur btn btn-primary m-3 rounded-pill">Voir les potins de la ville</a>
+        <hr>
+      <% end %>
+    <% end %>
+</div>
